@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+}
+
+.BackgroundPictureMain {
+
+}
+
+.MainPic{
+    height: 100vh;
+  width: 100%;
+  object-fit: cover;
+
+  display: block;
+
+  position: fixed;
+
+  z-index: 1;
+}
+
+.Heading1{
+  z-index: 2;
+
+  font-size: 50pt;
+
+  display: block;
+
+  position: fixed;
+
+  align-items: center;
+
+  color: red;
+}
