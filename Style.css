@@ -1,33 +1,465 @@
-body {
+.MainTextHeader
+{
+  font-size: clamp(2rem, 12vw, 8rem);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  position: absolute;
+
+  top: 50%;
+  left: 5%;
+
+  color: white;
+}
+
+
+.MenuBar {
+  background-color: rgb(41, 0, 117);
+  font-size: 20pt;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-left: 0pt;
+  text-align: center;
+  z-index: 10;
+}
+
+.MenuBarLink {
+  color: white;
+  text-decoration: none;
+}
+
+.MenuBarItem {
+  display: inline-block;
+  width: 120pt;
+  height: auto;
+  color: white;
+  text-align: center;
+  margin-top: 25pt;
+  text-decoration: none;
+  position: relative;
+  vertical-align: top;
+  padding-bottom: 15pt;
+}
+
+.MenuBarItem:hover {
+  color: red;
+  transition: .5s ease;
+}
+
+.MenuBarLogo {
+  height: 50pt;
+  width: 50pt;
+  margin-left: 25pt;
+  margin-top: 10pt;
+  position: relative;
+}
+
+.MainImage img {
+  width: 100%;
+  height: auto;
+  display: block;   /* nimmt den Zeilen-Spacing weg */
+}
+
+.FootBar {
+  background-color: black;
+  height: 200pt;
+  font-size: 20pt;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  align-content: center;
+  object-fit: cover;
+  margin-top: -15pt;
+  margin-bottom: -50pt;
+}
+
+.FooterTextWrapper {
+  color: white;
+  background-color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 8pt;
+  height: auto;
+  min-height: 50pt;
+  margin-top: auto;
+  justify-content: center; /* Horizontal zentrieren */
+  align-items: center;    /* Vertikal zentrieren */
+}
+
+.FooterTable {
+  color: white;
+  background-color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 8pt;
+  height: auto;
+  min-height: 50pt;
+  align-items: center;
+}
+
+
+.CopyrightNoticeFooter {
+  display: inline-flex;
+  vertical-align: bottom;
+
+  text-align: center;
+
+  column-span: 3;
+}
+
+.FooterLogo {
+  width: 80pt;
+}
+
+.FooterText {
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 12pt;
+  height: auto;
+  min-height: 50pt;
+  text-align: left;
+}
+
+/* ===== BANDS PAGE – FLAT UI ===== */
+
+.BandsWrapper {
+  max-width: 1200px;
+  margin: 80px auto 120px auto;
+  padding: 0 32px;
+}
+
+.BandsSubline {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1rem;
+  color: #9ca3af;
+  max-width: 720px;
+  line-height: 1.7;
+  margin-bottom: 2.5em;
+}
+
+/* Linie zwischen den Bands */
+.BandRow + .BandRow {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 40px;
+  padding-top: 40px;
+}
+
+/* Hauptlayout: Bild links, Text rechts */
+.BandRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* Bild */
+.BandImageWrapper {
+  width: 100%;
+}
+
+/* Textblock rechts */
+.BandInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.BandTagline {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #a5b4fc;
   margin: 0;
 }
 
-.BackgroundPictureMain {
-
+.BandText {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #0055ff;
+  margin: 0;
 }
 
-.MainPic{
-    height: 100vh;
-  width: 100%;
-  object-fit: cover;
-
-  display: block;
-
-  position: fixed;
-
-  z-index: 1;
+.BandDetailsList {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 0.9rem;
+  color: #cbd5f5;
 }
 
-.Heading1{
-  z-index: 2;
+.BandDetailsList li strong {
+  color: #e5e7eb;
+}
 
-  font-size: 50pt;
-
-  display: block;
-
-  position: fixed;
-
+/* Social Icons */
+.BandSocial {
+  display: flex;
   align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
 
-  color: red;
+.BandSocialLabel {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.BandSocialLinks {
+  display: flex;
+  gap: 10px;
+}
+
+.BandSocialLink {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;        /* FLAT */
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  color: #e5e7eb;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.BandSocialLink:hover {
+  background: #e5e7eb;
+  color: #111827;
+  border-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+/* Responsive: untereinander auf kleineren Screens */
+@media (max-width: 900px) {
+  .BandRow {
+    grid-template-columns: 1fr;
+  }
+
+  .BandRow + .BandRow {
+    margin-top: 32px;
+    padding-top: 32px;
+  }
+}
+
+/* Rahmen um die Bandbilder */
+.BandImage {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+
+  /* NEU: Rahmen */
+  border: 3px solid rgb(41, 0, 117);
+}
+
+/* Überschriften in Headbar-Blau */
+.BandsHeadline{
+  color: rgb(41, 0, 117);
+  font-size: 50pt;
+}
+
+.BandTitle {
+  color: rgb(41, 0, 117);
+}
+
+/* ===== MODERNE FLAT-UI FONTS ===== */
+
+:root {
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+             Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  background-color: #f3f4ff; /* leichtes Hellblau */
+}
+
+
+/* Kopfzeilen / große Headlines */
+.MainTextHeader,
+.BandsHeadline,
+.BandTitle {
+  font-family: var(--font-ui);
+}
+
+/* Menü und Footer */
+.MenuBar,
+.MenuBarItem,
+.FooterTextWrapper,
+.FooterTable,
+.FooterText,
+.CopyrightNoticeFooter {
+  font-family: var(--font-ui);
+}
+
+/* Bands-Section: Subline, Texte, Meta, Labels */
+.BandsSubline,
+.BandTagline,
+.BandText,
+.BandDetailsList,
+.BandSocialLabel {
+  font-family: var(--font-ui);
+}
+
+.BandsHeadline,
+.BandTitle {
+  color: rgb(41, 0, 117);
+}
+
+.BandTitle {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+}
+
+/* ===== ABOUT PAGE ===== */
+
+.AboutWrapper {
+  max-width: 1200px;
+  margin: 80px auto 120px auto;
+  padding: 0 32px;
+}
+
+/* HERO-Bereich: Bild + Text */
+
+.AboutHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.AboutImageWrapper {
+  width: 100%;
+}
+
+.AboutImage {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  border: 3px solid rgb(41, 0, 117); /* gleiche Rahmenfarbe wie Bandbilder */
+}
+
+.AboutHeroText {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.AboutLabel {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.AboutName {
+  font-family: var(--font-ui);
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(41, 0, 117);
+  margin: 0;
+}
+
+.AboutLead {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #0055ff; /* gleiche Textfarbe wie BandText */
+  margin: 0;
+}
+
+.AboutTags {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.AboutTag {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  color: #000000;
+}
+
+/* Hauptbereich mit Text und Spalten */
+
+.AboutBody {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.AboutTextBlock p {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #0055ff;
+  margin: 0 0 0.8em 0;
+}
+
+.AboutSectionTitle {
+  font-family: var(--font-ui);
+  font-size: 1.3rem;
+  color: rgb(41, 0, 117);
+  margin: 0 0 0.6em 0;
+}
+
+.AboutColumns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.AboutSubTitle {
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  color: rgb(41, 0, 117);
+  margin: 0 0 0.5em 0;
+}
+
+.AboutList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: #0055ff;
+}
+
+.AboutList li::before {
+  content: "•";
+  margin-right: 6px;
+}
+
+/* Responsive: einspaltig auf kleineren Screens */
+
+@media (max-width: 900px) {
+  .AboutHero {
+    grid-template-columns: 1fr;
+  }
+
+  .AboutColumns {
+    grid-template-columns: 1fr;
+  }
 }
