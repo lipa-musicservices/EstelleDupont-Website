@@ -13,7 +13,7 @@
 
 
 .MenuBar {
-  background-color: rgb(41, 0, 117);
+  background-color: #000106;  
   font-size: 20pt;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-left: 0pt;
@@ -253,17 +253,17 @@
   display: block;
 
   /* NEU: Rahmen */
-  border: 3px solid rgb(41, 0, 117);
+  border: 3px solid #000106;  
 }
 
 /* Überschriften in Headbar-Blau */
 .BandsHeadline{
-  color: rgb(41, 0, 117);
+  color: #000106;  
   font-size: 50pt;
 }
 
 .BandTitle {
-  color: rgb(41, 0, 117);
+  color: #000106;  
 }
 
 /* ===== MODERNE FLAT-UI FONTS ===== */
@@ -308,7 +308,7 @@ body {
 
 .BandsHeadline,
 .BandTitle {
-  color: rgb(41, 0, 117);
+  color: #000106;  
 }
 
 .BandTitle {
@@ -347,7 +347,7 @@ body {
   border-radius: 20px;
   object-fit: cover;
   display: block;
-  border: 3px solid rgb(41, 0, 117); /* gleiche Rahmenfarbe wie Bandbilder */
+  border: 3px solid #000106;   /* gleiche Rahmenfarbe wie Bandbilder */
 }
 
 .AboutHeroText {
@@ -371,7 +371,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgb(41, 0, 117);
+  color: #000106;  
   margin: 0;
 }
 
@@ -418,7 +418,7 @@ body {
 .AboutSectionTitle {
   font-family: var(--font-ui);
   font-size: 1.3rem;
-  color: rgb(41, 0, 117);
+  color: #000106;  
   margin: 0 0 0.6em 0;
 }
 
@@ -431,7 +431,7 @@ body {
 .AboutSubTitle {
   font-family: var(--font-ui);
   font-size: 1.05rem;
-  color: rgb(41, 0, 117);
+  color: #000106;  
   margin: 0 0 0.5em 0;
 }
 
@@ -462,4 +462,386 @@ body {
   .AboutColumns {
     grid-template-columns: 1fr;
   }
+}
+
+/* ===== DESIGN POLISH (Premium Flat UI) ===== */
+
+:root{
+  --brand: #000106;  
+  --bg: #f3f4ff;
+
+  --surface: #ffffff;
+  --surface-2: rgba(255,255,255,0.70);
+
+  --text: #0f172a;        /* fast schwarz */
+  --muted: #475569;       /* slate */
+  --muted-2: #64748b;     /* heller slate */
+
+  --border: rgba(15, 23, 42, 0.10);
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 6px 18px rgba(15, 23, 42, 0.06);
+
+  --radius: 18px;
+}
+
+body{
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Headline optisch sauberer */
+.BandsHeadline{
+  letter-spacing: 0.02em;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);   /* statt 50pt */
+  margin-bottom: 0.4em;
+}
+
+/* Unterzeile hochwertiger */
+.BandsSubline{
+  color: var(--muted-2);
+  max-width: 780px;
+}
+
+/* Band-Layout: mehr Luft */
+.BandRow{
+  gap: 40px;
+  padding: 18px 0;
+}
+
+/* Linie zwischen Bands: nicht weiß, sondern dezent dunkel */
+.BandRow + .BandRow{
+  border-top: 1px solid var(--border);
+}
+
+/* Bild: Rahmen dezenter + Shadow */
+.BandImage{
+  border: 2px solid rgba(41,0,117,0.25);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius);
+}
+
+/* Rechts-Block als Card */
+.BandInfo{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 22px 22px;
+}
+
+/* Titel größer, cleaner */
+.BandTitle{
+  color: var(--brand);
+  font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+  letter-spacing: 0.04em;
+}
+
+/* Fließtext NICHT knallblau */
+.BandText{
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Details ebenfalls ruhiger */
+.BandDetailsList{
+  color: var(--muted-2);
+}
+
+/* Social Label */
+.BandSocialLabel{
+  color: var(--muted-2);
+}
+
+/* Social Buttons: modernere Pill-Buttons */
+.BandSocialLink{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--brand);
+  box-shadow: 0 6px 14px rgba(15,23,42,0.06);
+}
+
+.BandSocialLink:hover{
+  background: var(--brand);
+  color: #fff;
+  border-color: rgba(41,0,117,0.45);
+}
+
+/* ===== ABOUT POLISH ===== */
+
+.AboutImage{
+  border: 2px solid rgba(41,0,117,0.25);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius);
+}
+
+.AboutHeroText{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 22px 22px;
+}
+
+.AboutName{
+  color: var(--brand);
+}
+
+.AboutLead{
+  color: var(--muted);
+}
+
+.AboutTextBlock p{
+  color: var(--muted);
+}
+
+/* Tags: schön und soft */
+.AboutTag{
+  background: rgba(41,0,117,0.06);
+  border: 1px solid rgba(41,0,117,0.18);
+  color: var(--brand);
+}
+
+/* Listen nicht knallig blau */
+.AboutList{
+  color: var(--muted);
+}
+
+/* ===== MENU BAR – PREMIUM FLAT UI ===== */
+
+/* Bar selbst: weniger brachial, sticky, sauberer Look */
+.MenuBar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: #000106;     /* leicht transparent */
+  backdrop-filter: blur(10px);            /* modern glassy */
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+
+  font-family: var(--font-ui);
+  font-size: 14pt;                         /* kleiner, hochwertiger */
+  text-align: center;
+  margin-left: 0;
+  padding: 10px 12px;                      /* kompakter */
+}
+
+/* Menü-Items: weniger Block, mehr UI */
+.MenuBarItem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;                             /* weg mit 120pt */
+  margin: 0 10px;
+  padding: 10px 14px;
+
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  position: relative;
+
+  border-radius: 999px;                    /* pill */
+  transition: background 0.18s ease, transform 0.18s ease, color 0.18s ease;
+}
+
+/* Hover: subtile Fläche + leichter Lift */
+.MenuBarItem:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Aktiver Link (optional): wenn du "active" als class setzt */
+.MenuBarItem.active {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+/* Schicker Unterstrich beim Hover */
+.MenuBarItem::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 6px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.18s ease;
+}
+
+.MenuBarItem:hover::after {
+  transform: scaleX(1);
+}
+
+/* Links in Menü: Farbe übernehmen */
+.MenuBarLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Logo: kleiner, sauber ausgerichtet */
+.MenuBarLogo {
+  width: 42px;
+  height: 42px;
+  margin: 0 12px 0 0;
+  vertical-align: middle;
+  position: relative;
+  top: 2px;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.25));
+}
+
+/* Mobile: Items umbrechen statt gequetscht */
+@media (max-width: 700px) {
+  .MenuBar {
+    padding: 10px 8px;
+  }
+  .MenuBarItem {
+    margin: 6px 6px;
+    padding: 10px 12px;
+    font-size: 13pt;
+  }
+}
+
+/* ===== MENU BAR – SOFTER SEPARATOR ===== */
+.MenuBar{
+  border-bottom: none !important;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.10) !important;
+}
+
+.MenuBar::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-18px;
+  height:18px;
+  pointer-events:none;
+  background: linear-gradient(to bottom,
+    rgba(15,23,42,0.10),
+    rgba(15,23,42,0.00)
+  );
+}
+
+/* ===== MOBILE MENU (BURGER) ===== */
+
+.MenuToggle{
+  display:none;
+  width: 46px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.10);
+  box-shadow: 0 8px 18px rgba(15,23,42,0.12);
+  cursor:pointer;
+  padding: 10px;
+  margin-left: auto;
+}
+
+.MenuToggle span{
+  display:block;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.92);
+  margin: 6px 0;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+/* Desktop: Links normal */
+.MenuLinks{
+  display: inline-flex;
+  align-items:center;
+  gap: 8px;
+}
+
+/* Mobile: Burger sichtbar, Links als Dropdown */
+@media (max-width: 760px){
+  .MenuBar{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    text-align:left;
+  }
+
+  .MenuToggle{ display:inline-flex; align-items:center; justify-content:center; }
+
+  .MenuLinks{
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: calc(100% + 10px);
+
+    display:none;
+    flex-direction:column;
+    gap: 6px;
+
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(15,23,42,0.10);
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(15,23,42,0.16);
+    padding: 12px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Dropdown sichtbar */
+  .MenuBar.is-open .MenuLinks{
+    display:flex;
+  }
+
+  /* Items im Dropdown: dunkle Schrift */
+  .MenuBar.is-open .MenuBarItem{
+    width: 100%;
+    justify-content:flex-start;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(41,0,117,0.05);
+    color: #000106;
+  }
+
+  .MenuBar.is-open .MenuBarItem:hover{
+    background: rgba(41,0,117,0.12);
+    transform:none;
+  }
+
+  /* Unterstrich im Dropdown weg */
+  .MenuBarItem::after{
+    display:none;
+  }
+
+  /* Burger Animation (X) */
+  .MenuBar.is-open .MenuToggle span:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+  .MenuBar.is-open .MenuToggle span:nth-child(2){
+    opacity: 0;
+  }
+  .MenuBar.is-open .MenuToggle span:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* ===== HEADBAR TEXT IM MENÜ: IMMER WEISS ===== */
+
+.MenuBar,
+.MenuBarLink,
+.MenuBarItem,
+.MenuBarItem:visited {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.MenuBarItem:hover,
+.MenuBarItem:hover .MenuBarLink,
+.MenuBarLink:hover {
+  color: #ffffff !important;
+}
+
+/* falls du den Unterstrich-Effekt nutzt */
+.MenuBarItem::after {
+  background: rgba(255, 255, 255, 0.90) !important;
 }
