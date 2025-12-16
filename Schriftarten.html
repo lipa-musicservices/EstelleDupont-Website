@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Font Vergleich – Estelle Dupont</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#0b1020;
+  --card:#11172e;
+  --border:rgba(255,255,255,0.12);
+  --text:rgba(255,255,255,0.92);
+  --muted:rgba(255,255,255,0.65);
+  --accent:#a08cff;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  padding:40px 20px;
+  background:var(--bg);
+  color:var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+h1{
+  margin:0 0 10px 0;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+p.top{
+  margin:0 0 40px 0;
+  color:var(--muted);
+  max-width:900px;
+  line-height:1.6;
+}
+
+.wrapper{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+}
+
+.fontName{
+  font-size:0.85rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+
+.sample{
+  margin:0;
+}
+
+.sample h2{
+  margin:0 0 10px 0;
+  font-size:2.4rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+
+.sample h3{
+  margin:0 0 14px 0;
+  font-weight:400;
+  color:var(--muted);
+}
+
+.sample p{
+  margin:0 0 16px 0;
+  max-width:800px;
+  line-height:1.75;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:10px 16px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text);
+  font-weight:500;
+}
+.btn.primary{
+  background:#fff;
+  color:#0b1020;
+  border-color:#fff;
+}
+
+hr{
+  border:none;
+  border-top:1px solid var(--border);
+  margin:50px 0;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Font Vergleich</h1>
+<p class="top">
+Diese Seite zeigt verschiedene moderne Schriftarten im direkten Vergleich.
+Achte auf Lesbarkeit, Eleganz, Rhythmus und wie „musikalisch“ die Schrift wirkt.
+</p>
+
+<div class="wrapper">
+
+  <!-- SYSTEM UI -->
+  <div class="card" style="font-family: system-ui, -apple-system, BlinkMacSystemFont;">
+    <div class="fontName">System UI / Apple San Francisco</div>
+    <div class="sample">
+      <h2>Estelle Dupont</h2>
+      <h3>Saxophon · Jazz · Contemporary</h3>
+      <p>
+        Moderner Jazz zwischen Ausdruck und Präzision.  
+        Klarer Ton, flexible Klangsprache und musikalische Tiefe.
+      </p>
+      <div class="buttons">
+        <button class="btn primary">Kontakt</button>
+        <button class="btn">Mehr Infos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SF PRO -->
+  <div class="card" style="font-family: 'SF Pro Display','SF Pro Text',system-ui;">
+    <div class="fontName">SF Pro Display / Text</div>
+    <div class="sample">
+      <h2>Estelle Dupont</h2>
+      <h3>Saxophon · Jazz · Contemporary</h3>
+      <p>
+        Moderner Jazz zwischen Ausdruck und Präzision.  
+        Klarer Ton, flexible Klangsprache und musikalische Tiefe.
+      </p>
+      <div class="buttons">
+        <button class="btn primary">Kontakt</button>
+        <button class="btn">Mehr Infos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEGOE UI VARIABLE -->
+  <div class="card" style="font-family: 'Segoe UI Variable','Segoe UI',system-ui;">
+    <div class="fontName">Segoe UI Variable</div>
+    <div class="sample">
+      <h2>Estelle Dupont</h2>
+      <h3>Saxophon · Jazz · Contemporary</h3>
+      <p>
+        Moderner Jazz zwischen Ausdruck und Präzision.  
+        Klarer Ton, flexible Klangsprache und musikalische Tiefe.
+      </p>
+      <div class="buttons">
+        <button class="btn primary">Kontakt</button>
+        <button class="btn">Mehr Infos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTER -->
+  <div class="card" style="font-family: 'Inter', system-ui;">
+    <div class="fontName">Inter</div>
+    <div class="sample">
+      <h2>Estelle Dupont</h2>
+      <h3>Saxophon · Jazz · Contemporary</h3>
+      <p>
+        Moderner Jazz zwischen Ausdruck und Präzision.  
+        Klarer Ton, flexible Klangsprache und musikalische Tiefe.
+      </p>
+      <div class="buttons">
+        <button class="btn primary">Kontakt</button>
+        <button class="btn">Mehr Infos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HELVETICA / ARIAL -->
+  <div class="card" style="font-family: Helvetica, Arial, sans-serif;">
+    <div class="fontName">Helvetica / Arial</div>
+    <div class="sample">
+      <h2>Estelle Dupont</h2>
+      <h3>Saxophon · Jazz · Contemporary</h3>
+      <p>
+        Moderner Jazz zwischen Ausdruck und Präzision.  
+        Klarer Ton, flexible Klangsprache und musikalische Tiefe.
+      </p>
+      <div class="buttons">
+        <button class="btn primary">Kontakt</button>
+        <button class="btn">Mehr Infos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROBOTO -->
+  <div class="card" style="font-family: Roboto, system-ui;">
+    <div class="fontName">Roboto</div>
+    <div class="sample">
+      <h2>Estelle Dupont</h2>
+      <h3>Saxophon · Jazz · Contemporary</h3>
+      <p>
+        Moderner Jazz zwischen Ausdruck und Präzision.  
+        Klarer Ton, flexible Klangsprache und musikalische Tiefe.
+      </p>
+      <div class="buttons">
+        <button class="btn primary">Kontakt</button>
+        <button class="btn">Mehr Infos</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
