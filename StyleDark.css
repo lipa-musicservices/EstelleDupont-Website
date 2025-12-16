@@ -1,6 +1,7 @@
 :root{
   --brand: rgb(160, 140, 255); /* heller Akzent für Dark */
   --bg: #0b1020;               /* Dark Hintergrund */
+
   --text: rgba(255,255,255,0.92);
   --muted: rgba(255,255,255,0.70);
   --muted2: rgba(255,255,255,0.55);
@@ -10,8 +11,10 @@
 
   --radius: 18px;
 
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-          Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /* Schlankere, modernere UI-Fonts (systemfreundlich) */
+  --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "SF Pro Display", "SF Pro Text", "Segoe UI Variable", "Segoe UI",
+          Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 *{ box-sizing:border-box; }
@@ -20,6 +23,10 @@ html{ scroll-behavior:smooth; }
 body{
   margin:0;
   font-family: var(--font);
+  font-weight: 360;                 /* overall lighter */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   background: var(--bg);
   color: var(--text);
 }
@@ -74,14 +81,15 @@ body{
 }
 
 .brandName{
-  font-weight: 800;
+  font-weight: 650;                 /* lighter than 800 */
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-size: 0.95rem;
 }
 .brandSub{
   font-size: 0.82rem;
-  opacity: 0.9;
+  opacity: 0.88;
+  font-weight: 360;
 }
 
 .navLinks{
@@ -100,8 +108,8 @@ body{
   text-decoration:none;
 
   color: rgba(255,255,255,0.95);
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  font-weight: 450;                 /* lighter */
+  letter-spacing: 0.02em;
   white-space:nowrap;
 
   transition: background .18s ease, transform .18s ease;
@@ -170,6 +178,7 @@ body{
     border-radius: 14px;
     background: rgba(255,255,255,0.06);
     color: rgba(255,255,255,0.92);
+    font-weight: 450;
   }
   .navLink:hover{
     background: rgba(255,255,255,0.10);
@@ -189,7 +198,7 @@ body{
   overflow: hidden;
 }
 
-/* (Falls du diese Klassen nutzt – ich lasse sie drin, aber mache sie konsistent) */
+/* Optional legacy */
 .Hero {
   position: relative;
   height: 100vh;
@@ -240,16 +249,17 @@ body{
 
 .heroKicker{
   margin:0;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.78);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
+  font-weight: 420;                /* lighter */
 }
 
 .heroTitle{
   margin:0;
   color: #fff;
-  font-weight: 900;
+  font-weight: 720;                 /* was 900 */
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.02;
@@ -262,6 +272,7 @@ body{
   color: rgba(255,255,255,0.86);
   line-height: 1.7;
   font-size: 1.02rem;
+  font-weight: 360;
 }
 
 .heroActions{
@@ -278,7 +289,7 @@ body{
   padding: 10px 14px;
   border-radius: 999px;
   text-decoration:none;
-  font-weight: 700;
+  font-weight: 520;                 /* lighter */
   letter-spacing: 0.02em;
   border: 1px solid rgba(255,255,255,0.20);
   transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
@@ -336,10 +347,8 @@ body{
   color: #0b1020;
 }
 
-/* ===== PAGE / SECTIONS (scrollweise) ===== */
-.page{
-  background: var(--bg);
-}
+/* ===== PAGE / SECTIONS ===== */
+.page{ background: var(--bg); }
 
 .section{
   padding: 76px 0;
@@ -362,7 +371,7 @@ body{
 .sectionTitle{
   margin: 0 0 8px 0;
   color: #fff;
-  font-weight: 900;
+  font-weight: 720;                 /* was 900 */
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: clamp(1.5rem, 2.6vw, 2.1rem);
@@ -373,9 +382,10 @@ body{
   color: var(--muted);
   line-height: 1.7;
   max-width: 760px;
+  font-weight: 360;
 }
 
-/* Lists without cards */
+/* Lists */
 .list{
   display:flex;
   flex-direction:column;
@@ -402,8 +412,8 @@ body{
   border-radius: 999px;
   background: rgba(160,140,255,0.10);
   border: 1px solid rgba(160,140,255,0.22);
-  color: rgba(255,255,255,0.92);
-  font-weight: 700;
+  color: rgba(255,255,255,0.90);
+  font-weight: 520;                 /* lighter */
   font-size: 0.86rem;
 }
 
@@ -412,6 +422,7 @@ body{
   color: var(--muted);
   line-height: 1.75;
   max-width: 860px;
+  font-weight: 360;
 }
 
 /* Live rows */
@@ -425,15 +436,15 @@ body{
   border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 .liveLeft{ display:flex; flex-direction:column; gap: 6px; }
-.liveDate{ color: rgba(255,255,255,0.92); font-weight: 900; letter-spacing: 0.04em; }
-.livePlace{ color: rgba(255,255,255,0.90); }
-.liveProject{ color: var(--muted); }
+.liveDate{ color: rgba(255,255,255,0.92); font-weight: 620; letter-spacing: 0.04em; }
+.livePlace{ color: rgba(255,255,255,0.90); font-weight: 420; }
+.liveProject{ color: var(--muted); font-weight: 360; }
 .liveRight{ padding-top: 2px; }
 
 .link{
   color: var(--brand);
   text-decoration:none;
-  font-weight: 800;
+  font-weight: 600;                 /* lighter than 800 */
 }
 .link:hover{ text-decoration: underline; text-underline-offset: 3px; }
 
@@ -454,6 +465,7 @@ body{
   color: var(--muted);
   line-height: 1.8;
   max-width: 860px;
+  font-weight: 360;
 }
 .aboutImageWrap{
   display:flex;
@@ -485,8 +497,8 @@ body{
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.90);
-  font-weight: 700;
+  color: rgba(255,255,255,0.88);
+  font-weight: 520;
   font-size: 0.9rem;
 }
 
@@ -537,8 +549,8 @@ body{
 }
 .bandName{
   margin:0;
-  color: rgba(255,255,255,0.96);
-  font-weight: 950;
+  color: rgba(255,255,255,0.95);
+  font-weight: 720;                 /* was 950 */
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: clamp(1.35rem, 2.2vw, 1.9rem);
@@ -548,6 +560,7 @@ body{
   color: var(--muted);
   line-height: 1.75;
   max-width: 760px;
+  font-weight: 360;
 }
 .bandLinks{
   display:flex;
@@ -574,6 +587,7 @@ body{
   display:flex;
   align-items:center;
   gap: 10px;
+  font-weight: 360;
 }
 .contactSocial{
   margin-top: 10px;
@@ -589,6 +603,7 @@ body{
   color: var(--muted2);
   text-align:left;
   font-size: 0.95rem;
+  font-weight: 360;
 }
 
 /* Powered by */
@@ -596,18 +611,19 @@ body{
   margin: 10px 0 0 0;
   color: var(--muted2);
   font-size: 0.92rem;
+  font-weight: 360;
 }
 .poweredBy a{
   color: var(--brand);
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 600;
 }
 .poweredBy a:hover{
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* (du hast das am Ende drin – ich lasse es kompatibel) */
+/* Legacy compatibility */
 .MenuBar {
   position: fixed;
   top: 0;
