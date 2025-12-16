@@ -1,43 +1,411 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="de">
 <head>
-  <!-- Site made with Mobirise AI Website Builder v0.01, https://ai.mobirise.com -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise AI v0.01, ai.mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="https://ai.mobirise.com/assets/couplem5/images/logo5.png?v=m3frcrn2" type="image/x-icon">
-  <link rel="stylesheet" href="Style.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Estelle Dupont | Saxophon</title>
 
- </head>
-<body width="100%">
-    <div id="HeadBar"></div>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <div class="MainTextHeader">Estelle</br>Dupont</div>
-    <div class="MainImage" width="100%"><img src="Resources/MainPic.jpg"></div>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <div class="PageBackground">
-      <table width="100%">
-        <tr height="600pt">
-          <th width="5%" class="PageSides"></th>
-          <th><iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FBerlin&showPrint=0&mode=AGENDA&showTitle=0&showDate=0&showTabs=0&showCalendars=0&showTz=0&showNav=0&src=NzZkMGFiZWM0OTNjYTFmNGE1NTNjYzE0NGQwOWI2YTBjODE1NzQ2ODM1MWIzZGU4MzdhNTg1NzllOGFhYTVhOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23EF6C00" style="border-width:0" width="80%" height="600" frameborder="0" scrolling="no"></iframe></th>
-          <th width="5%" class="PageSides"></th>
-        </tr>
-      </table>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="top">
+    <div class="navInner">
+      <a class="brand" href="#top" aria-label="Zur Startseite">
+        <span class="brandMark"><i class="fa-solid fa-music"></i></span>
+        <span class="brandText">
+          <span class="brandName">Estelle Dupont</span>
+          <span class="brandSub">Saxophon</span>
+        </span>
+      </a>
+
+      <button class="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="navLinks" aria-label="Hauptmenü">
+        <a class="navLink" href="#news">News</a>
+        <a class="navLink" href="#live">Live</a>
+        <a class="navLink" href="#about">About</a>
+        <a class="navLink" href="#media">Media</a>
+        <a class="navLink" href="#bands">Bands</a>
+        <a class="navLink" href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <div id="FootBar"></div>
+  <!-- HERO (Titelbild) -->
+  <section class="hero" aria-label="Titelbereich">
+    <!-- TODO: Ersetze das Titelbild -->
+  <img src="Resources/MainPic.jpg" class="HeroImage">
+
+
+
+    <div class="heroOverlay"></div>
+
+    <div class="heroContent">
+      <p class="heroKicker">Saxophonistin</p>
+      <h1 class="heroTitle">Estelle Dupont</h1>
+      <p class="heroLead">
+        Moderner Jazz, Funk & Bigband – klarer Ton, musikalische Präzision und Energie auf der Bühne.
+      </p>
+
+      <div class="heroActions">
+        <a class="btn btnPrimary" href="#contact"><i class="fa-solid fa-envelope"></i> Booking</a>
+        <a class="btn btnGhost" href="#media"><i class="fa-brands fa-youtube"></i> Media</a>
+        <a class="btn btnGhost" href="#bands"><i class="fa-solid fa-users"></i> Bands</a>
+      </div>
+
+      <div class="heroSocial">
+        <!-- TODO: Links setzen -->
+        <a class="iconBtn iconBtn--light" href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="iconBtn iconBtn--light" href="#" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a class="iconBtn iconBtn--light" href="#" target="_blank" rel="noopener" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main class="page">
+
+    <!-- NEWS -->
+    <section class="section" id="news">
+      <div class="sectionInner">
+        <header class="sectionHead">
+          <h2 class="sectionTitle">News</h2>
+          <p class="sectionSub">
+            Kurz & aktuell. Kein Blabla.
+          </p>
+        </header>
+
+        <div class="list">
+          <article class="item">
+            <div class="itemMeta">
+              <span class="tag"><i class="fa-regular fa-calendar"></i> 2026-01-xx</span>
+              <span class="tag"><i class="fa-solid fa-bullhorn"></i> Announcement</span>
+            </div>
+            <p class="itemText">
+              Ich bin estelle und habe tolle news
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="itemMeta">
+              <span class="tag"><i class="fa-regular fa-calendar"></i> 2025-12-xx</span>
+              <span class="tag"><i class="fa-solid fa-microphone"></i> Feature</span>
+            </div>
+            <p class="itemText">
+              Ich bin estelle und habe NOCH MEHR tolle news
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE -->
+    <section class="section" id="live">
+      <div class="sectionInner">
+        <header class="sectionHead">
+          <h2 class="sectionTitle">Live</h2>
+          <p class="sectionSub">
+            Upcoming shows. Klar strukturiert.
+          </p>
+        </header>
+
+        <div class="list">
+          <div class="liveRow">
+            <div class="liveLeft">
+              <div class="liveDate">2026-02-14</div>
+              <div class="livePlace"><strong>Jazzclub Beispiel</strong> · Stuttgart</div>
+              <div class="liveProject">Estelle Dupont Quartet</div>
+            </div>
+            <div class="liveRight">
+              <a class="link" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>
+            </div>
+          </div>
+
+          <div class="liveRow">
+            <div class="liveLeft">
+              <div class="liveDate">2026-03-08</div>
+              <div class="livePlace"><strong>Festival Beispiel</strong> · Mannheim</div>
+              <div class="liveProject">FUNKgeræt</div>
+            </div>
+            <div class="liveRight">
+              <a class="link" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>
+            </div>
+          </div>
+
+          <div class="liveRow">
+            <div class="liveLeft">
+              <div class="liveDate">2026-04-02</div>
+              <div class="livePlace"><strong>Konzerthaus Beispiel</strong> · Nürnberg</div>
+              <div class="liveProject">Groove Legend Orchestra</div>
+            </div>
+            <div class="liveRight">
+              <a class="link" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="sectionInner">
+        <header class="sectionHead">
+          <h2 class="sectionTitle">About</h2>
+          <p class="sectionSub">
+            Kurzprofil & Fokus – ohne “Lebenslauf-Wand”.
+          </p>
+        </header>
+
+        <div class="aboutGrid">
+          <div class="aboutText">
+            <p>
+              Estelle Dupont ist Saxophonistin mit Fokus auf modernem Jazz, Funk und Bigband-Playing.
+              Ihr Stil verbindet klare Linien, musikalische Präzision und einen natürlichen Groove – live wie im Studio.
+            </p>
+            <p>
+              Zusammenarbeit: Ensembles, Sessions, Live-Bands, Studio-Jobs, Projekte & Sub-Gigs (DE/EU).
+            </p>
+
+            <div class="tags">
+              <span class="tagPlain">Modern Jazz</span>
+              <span class="tagPlain">Funk / Groove</span>
+              <span class="tagPlain">Bigband</span>
+              <span class="tagPlain">Ensemble</span>
+              <span class="tagPlain">Improvisation</span>
+            </div>
+          </div>
+
+          <div class="aboutImageWrap">
+            <!-- TODO: About Foto -->
+            <img class="aboutImage" src="Resources/About/about.jpg" alt="Estelle Dupont – Portrait">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA -->
+    <section class="section" id="media">
+      <div class="sectionInner">
+        <header class="sectionHead">
+          <h2 class="sectionTitle">Media</h2>
+          <p class="sectionSub">
+            Videos/Clips. Minimalistisch, ohne Kästen.
+          </p>
+        </header>
+
+        <div class="mediaGrid">
+          <!-- TODO: Embeds ersetzen -->
+          <iframe class="embed" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 1"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+
+          <iframe class="embed" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 2"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANDS -->
+    <section class="section" id="bands">
+      <div class="sectionInner">
+        <header class="sectionHead">
+          <h2 class="sectionTitle">Bands</h2>
+          <p class="sectionSub">
+            Projekte – groß, clean, scrollbar.
+          </p>
+        </header>
+
+        <!-- Reihenfolge: Bujazzo, FG, Pentaphone, Groove legend, kalle, jazzify -->
+        <div class="bands">
+          <article class="band">
+            <img class="bandImg" src="Resources/Bandlogos/Folie1.PNG" alt="BUJAZZO">
+            <div class="bandBody">
+              <h3 class="bandName">BUJAZZO</h3>
+              <p class="bandText">
+                Bundesjazzorchester – junges Spitzenensemble des deutschen Jazz. Moderne Bigband-Literatur,
+                präzises Zusammenspiel und starke Solist:innen.
+              </p>
+              <div class="bandLinks">
+                <a class="iconBtn" href="https://www.bundesjazzorchester.de/" target="_blank" rel="noopener" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                <a class="iconBtn" href="https://www.instagram.com/bundesjazzorchester/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a class="iconBtn" href="https://www.youtube.com/@deutschermusikrat" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="band band--featured">
+            <img class="bandImg" src="Resources/Bandlogos/Folie2.PNG" alt="FUNKgeræt">
+            <div class="bandBody">
+              <h3 class="bandName">FUNKgeræt</h3>
+              <p class="bandText">
+                Instrumentaler Funk/Soul mit eigenen Kompositionen, tightem Groove und viel Live-Energie.
+              </p>
+              <div class="bandLinks">
+                <a class="iconBtn" href="https://www.funkgeraet.info/" target="_blank" rel="noopener" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                <a class="iconBtn" href="https://www.instagram.com/funk_geraet/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="band">
+            <img class="bandImg" src="Resources/Bandlogos/Folie3.PNG" alt="Pentaphone Project">
+            <div class="bandBody">
+              <h3 class="bandName">Pentaphone Project</h3>
+              <p class="bandText">
+                Saxophon-Ensemble: Jazz, Latin und Swing – Fokus auf Klangfarben, Balance und Groove.
+              </p>
+              <div class="bandLinks">
+                <a class="iconBtn" href="https://magdalena-busler.com/pentaphone-project/" target="_blank" rel="noopener" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                <a class="iconBtn" href="https://www.instagram.com/explore/search/keyword/?q=%23pentaphoneproject" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="band">
+            <img class="bandImg" src="Resources/Bandlogos/Folie4.PNG" alt="Groove Legend Orchestra">
+            <div class="bandBody">
+              <h3 class="bandName">Groove Legend Orchestra</h3>
+              <p class="bandText">
+                Bigband aus Nürnberg – klassischer Bigband-Sound mit sattem Bläsersatz und Drive.
+              </p>
+              <div class="bandLinks">
+                <a class="iconBtn" href="https://groovelegendorchestra.de/" target="_blank" rel="noopener" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                <a class="iconBtn" href="https://www.facebook.com/Groove-Legend-Orchestra-100063624780034/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="band">
+            <img class="bandImg" src="Resources/Bandlogos/Folie5.PNG" alt="Kalle Quartett">
+            <div class="bandBody">
+              <h3 class="bandName">Kalle Quartett</h3>
+              <p class="bandText">
+                Modernes Jazzquartett – klare Melodien, Interaktion, zeitgemäßer Quartett-Sound.
+              </p>
+              <div class="bandLinks">
+                <!-- TODO: Links ergänzen -->
+              </div>
+            </div>
+          </article>
+
+          <article class="band">
+            <img class="bandImg" src="Resources/Bandlogos/Folie6.PNG" alt="Jazzify">
+            <div class="bandBody">
+              <h3 class="bandName">Jazzify</h3>
+              <p class="bandText">
+                Pop-Songs als Jazz: frische Arrangements, Reharmonisationen und Spielfreude.
+              </p>
+              <div class="bandLinks">
+                <a class="iconBtn" href="https://www.finnspaude.com/jazzify" target="_blank" rel="noopener" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                <a class="iconBtn" href="https://www.instagram.com/jazzify_project/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a class="iconBtn" href="https://www.youtube.com/@jazzify_project" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="sectionInner">
+        <header class="sectionHead">
+          <h2 class="sectionTitle">Contact</h2>
+          <p class="sectionSub">
+            Booking & Anfragen.
+          </p>
+        </header>
+
+        <div class="contact">
+          <p class="contactLine">
+            <i class="fa-solid fa-envelope"></i>
+            <a class="link" href="mailto:booking@estelledupont.de">booking@estelledupont.de</a>
+          </p>
+          <p class="contactLine">
+            <i class="fa-solid fa-phone"></i>
+            <a class="link" href="tel:+491234567890">+49 123 4567890</a>
+          </p>
+
+          <div class="contactSocial">
+            <a class="iconBtn" href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a class="iconBtn" href="#" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a class="iconBtn" href="#" target="_blank" rel="noopener" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+          </div>
+        </div>
+
+        <footer class="footer">
+  © <span id="year"></span> Estelle Dupont · Saxophon
+</footer>
+
+<p class="poweredBy">
+  This Website is powered by
+  <a href="https://lipamusicservices.com" target="_blank" rel="noopener">LiPa Music Services</a>
+</p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const nav = document.querySelector(".nav");
+    const toggle = document.querySelector(".navToggle");
+
+    if (nav && toggle) {
+      toggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        nav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", nav.classList.contains("is-open") ? "true" : "false");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (nav.classList.contains("is-open") && !nav.contains(e.target)) {
+          nav.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded","false");
+        }
+      });
+
+      document.querySelectorAll(".navLinks a").forEach(a=>{
+        a.addEventListener("click", ()=>{
+          nav.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded","false");
+        });
+      });
+    }
+
+    // Active nav link
+    const links = Array.from(document.querySelectorAll(".navLink"));
+    const sections = links.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+
+    const setActive = () => {
+      const y = window.scrollY + 140;
+      let current = null;
+      for (const s of sections) if (s.offsetTop <= y) current = s;
+      links.forEach(l => l.classList.remove("is-active"));
+      if (current) {
+        const hit = links.find(l => l.getAttribute("href") === "#" + current.id);
+        if (hit) hit.classList.add("is-active");
+      }
+    };
+
+    window.addEventListener("scroll", setActive, { passive:true });
+    setActive();
+  </script>
+
 </body>
-
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-
-<script> 
-
-    $(function(){
-        $("#HeadBar").load("FixedPages/HeadBar.html"); 
-        $("#FootBar").load("FixedPages/FootBar.html"); 
-    });
-
-</script> 
+</html>
