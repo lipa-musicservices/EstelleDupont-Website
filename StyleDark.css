@@ -663,3 +663,41 @@ body{
 .tag, .tagPlain, .btn{
   font-weight: 500;
 }
+
+/* ===== Bands: Überschriften schlanker ===== */
+.bandName{
+  font-weight: 100;              /* vorher war’s 900+ -> jetzt Hairline */
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.96);
+}
+
+/* Falls irgendwo noch .BandTitle aus alten Seiten existiert */
+.BandTitle{
+  font-weight: 100 !important;
+  letter-spacing: 0.18em;
+}
+
+/* ===== Bands: Überschriften schlanker ===== */
+.bandName{
+  font-weight: 100;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.96);
+}
+
+/* Falls irgendwo noch .BandTitle existiert */
+.BandTitle{
+  font-weight: 100 !important;
+  letter-spacing: 0.18em;
+}
+
+/* Optional: optisch noch filigraner (Chrome/Edge/Safari) */
+.bandName{
+  -webkit-text-stroke: 0.35px rgba(255,255,255,0.22);
+}
+
+/* Featured-Schrift nicht “aufgepumpt” */
+.band--featured .bandName{
+  text-shadow: none;
+}
