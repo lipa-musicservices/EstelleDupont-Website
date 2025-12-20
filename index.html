@@ -20,7 +20,7 @@
 
 <body>
 
-    <div id="top"></div>
+  <div id="top"></div>
     
   <!-- NAV -->
   <header class="nav" id="top">
@@ -87,18 +87,15 @@
       <div class="sectionInner">
         <header class="sectionHead">
           <h2 class="sectionTitle">Live</h2>
-          <p class="sectionSub">
-            
-          </p>
+          <p class="sectionSub"></p>
         </header>
 
         <div class="list" id="liveList">
           <div class="itemText" id="liveStatus">Loading upcoming shows…</div>
         </div>
-
-        
       </div>
     </section>
+
 
     <!-- INSTAGRAM FEED (Mirror) -->
 <section class="section" id="news">
@@ -272,7 +269,7 @@
             <div class="bandBody">
               <h3 class="bandName">Kalle Quartett</h3>
               <p class="bandText">
-                Modernes Jazzquartett – klare Melodien, Interaktion, zeitgemäßer Quartett-Sound.
+                Modernes Jazzquartett - klare Melodien, Interaktion, zeitgemäßer Quartett-Sound.
               </p>
               <div class="bandLinks">
                 <!-- TODO: Links ergänzen -->
@@ -312,11 +309,11 @@
         <div class="contact">
           <p class="contactLine">
             <i class="fa-solid fa-envelope"></i>
-            <a class="link" href="mailto:booking@estelledupont.de">info@estelledupont.de</a>
+            <a class="link" href="mailto:info@estelledupont.de">info@estelledupont.de</a>
           </p>
           <p class="contactLine">
             <i class="fa-solid fa-phone"></i>
-            <a class="link" href="tel:+491234567890">+49 173 8862866</a>
+            <a class="link" href="tel:+491738862866">+49 173 8862866</a>
           </p>
 
           <div class="contactSocial">
@@ -428,9 +425,11 @@
 
       liveListEl.innerHTML = events.map(ev => {
         const dateLabel = fmtDate(ev.datetime);
-        const cityLine = [ev.city, ev.region].filter(Boolean).join(", ") || [ev.city, ev.country].filter(Boolean).join(", ");
-        const venueStrong = ev.venueName ? `<strong>${esc(ev.venueName)}</strong>` : `<strong>${esc(ev.artist)}</strong>`;
-        const location = cityLine ? ` · ${esc(cityLine)}` : "";
+
+        // NUR Venue anzeigen (kein Ort mehr)
+        const venueStrong = ev.venueName
+          ? `<strong>${esc(ev.venueName)}</strong>`
+          : `<strong>${esc(ev.artist)}</strong>`;
 
         const ticket = ev.ticketUrl
           ? `<a class="link" href="${esc(ev.ticketUrl)}" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>`
@@ -440,13 +439,17 @@
           <div class="liveRow">
             <div class="liveLeft">
               <div class="liveDate">${esc(dateLabel)}</div>
-              <div class="livePlace">${venueStrong}${location}</div>
+              <div class="livePlace">${venueStrong}</div>
               <div class="liveProject">${esc(ev.artist)}</div>
             </div>
             <div class="liveRight">${ticket}</div>
           </div>
         `;
       }).join("");
+
+      // optional: Status-Element entfernen, falls es noch da ist
+      const statusStillThere = document.getElementById("liveStatus");
+      if (statusStillThere) statusStillThere.remove();
 
     } catch (err) {
       console.error(err);
