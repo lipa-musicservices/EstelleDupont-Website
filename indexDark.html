@@ -126,40 +126,11 @@
           </p>
         </header>
 
-        <div class="list">
-          <div class="liveRow">
-            <div class="liveLeft">
-              <div class="liveDate">2026-02-14</div>
-              <div class="livePlace"><strong>Jazzclub Beispiel</strong> · Stuttgart</div>
-              <div class="liveProject">Estelle Dupont Quartet</div>
-            </div>
-            <div class="liveRight">
-              <a class="link" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>
-            </div>
-          </div>
-
-          <div class="liveRow">
-            <div class="liveLeft">
-              <div class="liveDate">2026-03-08</div>
-              <div class="livePlace"><strong>Festival Beispiel</strong> · Mannheim</div>
-              <div class="liveProject">FUNKgeræt</div>
-            </div>
-            <div class="liveRight">
-              <a class="link" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>
-            </div>
-          </div>
-
-          <div class="liveRow">
-            <div class="liveLeft">
-              <div class="liveDate">2026-04-02</div>
-              <div class="livePlace"><strong>Konzerthaus Beispiel</strong> · Nürnberg</div>
-              <div class="liveProject">Groove Legend Orchestra</div>
-            </div>
-            <div class="liveRight">
-              <a class="link" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>
-            </div>
-          </div>
+        <div class="list" id="liveList">
+          <div class="itemText" id="liveStatus">Loading upcoming shows…</div>
         </div>
+
+        
       </div>
     </section>
 
@@ -415,3 +386,70 @@
 
 </body>
 </html>
+
+<script>
+  const LIVE_PROXY_URL = "https://script.google.com/macros/s/AKfycbxzBwhPKQ7g346kdRqcmu15PiZSAxxQqck9aIokGXOyEHuQCFYV7gP1zw1THC08bZ46Fw/exec"; // /exec URL
+
+  const liveListEl = document.getElementById("liveList");
+  const liveStatusEl = document.getElementById("liveStatus");
+
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, m => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[m]));
+
+  const fmtDate = (iso) => {
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return iso;
+    return d.toLocaleDateString("de-DE", { year:"numeric", month:"2-digit", day:"2-digit" });
+  };
+
+  async function loadLive() {
+    try {
+      if (liveStatusEl) liveStatusEl.textContent = "Loading upcoming shows…";
+
+      // Optional: mehrere Artists
+      const artists = ["Estelle Dupont"]; // erweitern falls du willst
+      const qs = artists.map(a => "artist=" + encodeURIComponent(a)).join("&");
+      const url = LIVE_PROXY_URL + (LIVE_PROXY_URL.includes("?") ? "&" : "?") + qs;
+
+      const res = await fetch(url, { headers: { "Accept": "application/json" } });
+      if (!res.ok) throw new Error("Proxy error " + res.status);
+
+      const data = await res.json();
+      const events = Array.isArray(data.events) ? data.events : [];
+
+      if (!events.length) {
+        liveListEl.innerHTML = `<div class="itemText">Aktuell sind keine zukünftigen Termine gelistet.</div>`;
+        return;
+      }
+
+      liveListEl.innerHTML = events.map(ev => {
+        const dateLabel = fmtDate(ev.datetime);
+        const cityLine = [ev.city, ev.region].filter(Boolean).join(", ") || [ev.city, ev.country].filter(Boolean).join(", ");
+        const venueStrong = ev.venueName ? `<strong>${esc(ev.venueName)}</strong>` : `<strong>${esc(ev.artist)}</strong>`;
+        const location = cityLine ? ` · ${esc(cityLine)}` : "";
+
+        const ticket = ev.ticketUrl
+          ? `<a class="link" href="${esc(ev.ticketUrl)}" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>`
+          : `<span class="itemText" style="opacity:.8">Details folgen</span>`;
+
+        return `
+          <div class="liveRow">
+            <div class="liveLeft">
+              <div class="liveDate">${esc(dateLabel)}</div>
+              <div class="livePlace">${venueStrong}${location}</div>
+              <div class="liveProject">${esc(ev.artist)}</div>
+            </div>
+            <div class="liveRight">${ticket}</div>
+          </div>
+        `;
+      }).join("");
+
+    } catch (err) {
+      console.error(err);
+      liveListEl.innerHTML = `<div class="itemText">Konnte Live-Termine gerade nicht laden.</div>`;
+    }
+  }
+
+  loadLive();
+</script>
