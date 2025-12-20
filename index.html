@@ -11,10 +11,17 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="Style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;800&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
+    <div id="top"></div>
+    
   <!-- NAV -->
   <header class="nav" id="top">
     <div class="navInner">
@@ -75,39 +82,32 @@
   <!-- CONTENT -->
   <main class="page">
 
-    <!-- NEWS -->
-    <section class="section" id="news">
-      <div class="sectionInner">
-        <header class="sectionHead">
-          <h2 class="sectionTitle">News</h2>
-          <p class="sectionSub">
-            Kurz & aktuell. Kein Blabla.
-          </p>
-        </header>
+    <!-- INSTAGRAM FEED (Mirror) -->
+<section class="section" id="news">
+  <div class="sectionInner">
+    <header class="sectionHead">
+      <h2 class="sectionTitle">Instagram</h2>
+      <p class="sectionSub">Aktuelles direkt aus dem Feed.</p>
+    </header>
 
-        <div class="list">
-          <article class="item">
-            <div class="itemMeta">
-              <span class="tag"><i class="fa-regular fa-calendar"></i> 2026-01-xx</span>
-              <span class="tag"><i class="fa-solid fa-bullhorn"></i> Announcement</span>
-            </div>
-            <p class="itemText">
-              Ich bin estelle und habe tolle news
-            </p>
-          </article>
+    <div class="igEmbed">
+      <iframe
+        class="igFrame"
+        onload="iFrameSetup(this)"
+        src="https://app.mirror-app.com/feed-instagram/6301dea4-96b1-4a75-9647-a86351456c45/preview"
+        style="width:100%;border:none;overflow:hidden;"
+        scrolling="no"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>
 
-          <article class="item">
-            <div class="itemMeta">
-              <span class="tag"><i class="fa-regular fa-calendar"></i> 2025-12-xx</span>
-              <span class="tag"><i class="fa-solid fa-microphone"></i> Feature</span>
-            </div>
-            <p class="itemText">
-              Ich bin estelle und habe NOCH MEHR tolle news
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+<!-- Mirror iframe bridge (einmal pro Seite) -->
+<script src="https://cdn.jsdelivr.net/npm/@mirrorapp/iframe-bridge@latest/dist/index.umd.js"></script>
+
+
 
     <!-- LIVE -->
     <section class="section" id="live">
@@ -119,40 +119,11 @@
           </p>
         </header>
 
-        <div class="list">
-          <div class="liveRow">
-            <div class="liveLeft">
-              <div class="liveDate">2026-02-14</div>
-              <div class="livePlace"><strong>Jazzclub Beispiel</strong> · Stuttgart</div>
-              <div class="liveProject">Estelle Dupont Quartet</div>
-            </div>
-            <div class="liveRight">
-              <a class="link" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>
-            </div>
-          </div>
-
-          <div class="liveRow">
-            <div class="liveLeft">
-              <div class="liveDate">2026-03-08</div>
-              <div class="livePlace"><strong>Festival Beispiel</strong> · Mannheim</div>
-              <div class="liveProject">FUNKgeræt</div>
-            </div>
-            <div class="liveRight">
-              <a class="link" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>
-            </div>
-          </div>
-
-          <div class="liveRow">
-            <div class="liveLeft">
-              <div class="liveDate">2026-04-02</div>
-              <div class="livePlace"><strong>Konzerthaus Beispiel</strong> · Nürnberg</div>
-              <div class="liveProject">Groove Legend Orchestra</div>
-            </div>
-            <div class="liveRight">
-              <a class="link" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>
-            </div>
-          </div>
+        <div class="list" id="liveList">
+          <div class="itemText" id="liveStatus">Loading upcoming shows…</div>
         </div>
+
+        
       </div>
     </section>
 
@@ -186,7 +157,7 @@
 
           <div class="aboutImageWrap">
             <!-- TODO: About Foto -->
-            <img class="aboutImage" src="Resources/About/about.jpg" alt="Estelle Dupont – Portrait">
+            <img class="aboutImage" src="Resources/About.jpeg" alt="Estelle Dupont – Portrait">
           </div>
         </div>
       </div>
@@ -204,11 +175,11 @@
 
         <div class="mediaGrid">
           <!-- TODO: Embeds ersetzen -->
-          <iframe class="embed" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 1"
+          <iframe class="embed" src="https://www.youtube.com/embed/O2grihwkfZo?si=R-3Qjg6daC54oajX&amp;controls=0" title="Video 2"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen></iframe>
 
-          <iframe class="embed" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 2"
+          <iframe class="embed" src="https://www.youtube.com/embed/y3pLQk2OrHQ?si=XAPH5ydJOjsJaReQ&amp;controls=0" title="Video 2"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen></iframe>
         </div>
@@ -408,3 +379,70 @@
 
 </body>
 </html>
+
+<script>
+  const LIVE_PROXY_URL = "https://script.google.com/macros/s/AKfycbxzBwhPKQ7g346kdRqcmu15PiZSAxxQqck9aIokGXOyEHuQCFYV7gP1zw1THC08bZ46Fw/exec"; // /exec URL
+
+  const liveListEl = document.getElementById("liveList");
+  const liveStatusEl = document.getElementById("liveStatus");
+
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, m => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[m]));
+
+  const fmtDate = (iso) => {
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return iso;
+    return d.toLocaleDateString("de-DE", { year:"numeric", month:"2-digit", day:"2-digit" });
+  };
+
+  async function loadLive() {
+    try {
+      if (liveStatusEl) liveStatusEl.textContent = "Loading upcoming shows…";
+
+      // Optional: mehrere Artists
+      const artists = ["Estelle Dupont"]; // erweitern falls du willst
+      const qs = artists.map(a => "artist=" + encodeURIComponent(a)).join("&");
+      const url = LIVE_PROXY_URL + (LIVE_PROXY_URL.includes("?") ? "&" : "?") + qs;
+
+      const res = await fetch(url, { headers: { "Accept": "application/json" } });
+      if (!res.ok) throw new Error("Proxy error " + res.status);
+
+      const data = await res.json();
+      const events = Array.isArray(data.events) ? data.events : [];
+
+      if (!events.length) {
+        liveListEl.innerHTML = `<div class="itemText">Aktuell sind keine zukünftigen Termine gelistet.</div>`;
+        return;
+      }
+
+      liveListEl.innerHTML = events.map(ev => {
+        const dateLabel = fmtDate(ev.datetime);
+        const cityLine = [ev.city, ev.region].filter(Boolean).join(", ") || [ev.city, ev.country].filter(Boolean).join(", ");
+        const venueStrong = ev.venueName ? `<strong>${esc(ev.venueName)}</strong>` : `<strong>${esc(ev.artist)}</strong>`;
+        const location = cityLine ? ` · ${esc(cityLine)}` : "";
+
+        const ticket = ev.ticketUrl
+          ? `<a class="link" href="${esc(ev.ticketUrl)}" target="_blank" rel="noopener"><i class="fa-solid fa-ticket"></i> Tickets</a>`
+          : `<span class="itemText" style="opacity:.8">Details folgen</span>`;
+
+        return `
+          <div class="liveRow">
+            <div class="liveLeft">
+              <div class="liveDate">${esc(dateLabel)}</div>
+              <div class="livePlace">${venueStrong}${location}</div>
+              <div class="liveProject">${esc(ev.artist)}</div>
+            </div>
+            <div class="liveRight">${ticket}</div>
+          </div>
+        `;
+      }).join("");
+
+    } catch (err) {
+      console.error(err);
+      liveListEl.innerHTML = `<div class="itemText">Konnte Live-Termine gerade nicht laden.</div>`;
+    }
+  }
+
+  loadLive();
+</script>
