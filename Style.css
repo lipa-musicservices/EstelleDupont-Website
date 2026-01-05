@@ -1,7 +1,9 @@
 /* ================================
-   StyleDark.css (CLEAN VERSION)
+   Style.css (CLEAN / DARK)
+   One-page: Estelle Dupont
    ================================ */
 
+/* ---------- TOKENS ---------- */
 :root{
   /* Colors */
   --brand: rgb(160, 140, 255);      /* Accent */
@@ -30,7 +32,7 @@ html{ scroll-behavior:smooth; }
 body{
   margin:0;
   font-family: var(--font);
-  font-weight: 300;                 /* dünner Grundtext */
+  font-weight: 300;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -40,105 +42,100 @@ body{
 }
 
 /* ================================
-   NAV
+   MENUBAR (Header)
    ================================ */
-.nav{
+.MenuBar{
   position: sticky;
-  top:0;
-  z-index: 1000;
+  top: 0;
+  z-index: 9999;
 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  padding: 10px 18px;
   background: var(--navBg);
+
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-
   box-shadow: 0 10px 28px rgba(0,0,0,0.55);
 }
 
-.navInner{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px 18px;
+/* Logo: nur dieser Link als Box */
+.MenuBarLogoLink{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  display:flex;
-  align-items:center;
-  gap: 12px;
-}
+  width: 44px;
+  height: 44px;
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
-  color: #fff;
-}
-
-.brandMark{
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+  border-radius: 14px;
+  overflow: hidden;
 
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.16);
 }
 
-.brandText{
-  display:flex;
-  flex-direction:column;
-  line-height: 1.05;
+.MenuBarLogo{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  padding: 6px;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.35));
 }
 
-.brandName{
-  font-weight: 500;                 /* nicht fett */
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  font-size: 0.95rem;
-}
-
-.brandSub{
-  font-size: 0.82rem;
-  opacity: 0.88;
-  font-weight: 300;
-}
-
-.navLinks{
+/* Links rechts */
+.MenuLinks{
   display:flex;
   align-items:center;
-  gap: 6px;
-  margin-left: auto;
+  gap: 8px;
+  margin-left:auto;
 }
 
-.navLink{
+/* Desktop: Pills */
+.MenuBarItem{
   display:inline-flex;
   align-items:center;
   justify-content:center;
+
   padding: 10px 14px;
   border-radius: 999px;
-  text-decoration:none;
 
-  color: rgba(255,255,255,0.95);
-  font-weight: 350;                 /* dünner */
-  letter-spacing: 0.02em;
-  white-space:nowrap;
+  text-decoration: none;
+  color: rgba(255,255,255,0.92);
 
-  transition: background .18s ease, transform .18s ease;
+  background: transparent;
+  border: 1px solid transparent;
+
+  transition: background .18s ease, border-color .18s ease, transform .18s ease, color .18s ease;
 }
 
-.navLink:hover{
+.MenuBarItem:hover{
   background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.14);
   transform: translateY(-1px);
+  color: #fff;
 }
 
-.navLink.is-active{
-  background: rgba(255,255,255,0.16);
+.MenuBarItem:focus,
+.MenuBarItem:focus-visible{
+  outline: none;
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(160,140,255,0.35);
+  box-shadow: 0 0 0 3px rgba(160,140,255,0.18);
+  color: #fff;
 }
 
-/* ================================
-   MOBILE TOGGLE BUTTON (3 bars)
-   ================================ */
-.navToggle{
+.MenuBarItem.is-active{
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* Burger Button: Desktop aus */
+.MenuToggle{
   display:none;
   margin-left:auto;
 
@@ -158,11 +155,9 @@ body{
   justify-content:center;
   flex-direction:column;
   gap: 6px;
-
-  position: relative;
 }
 
-.navToggle span{
+.MenuToggle span{
   display:block;
   width: 22px;
   height: 2px;
@@ -172,15 +167,81 @@ body{
   transition: transform .20s ease, opacity .20s ease;
 }
 
-/* Burger -> X */
-.nav.is-open .navToggle span:nth-child(1){
+/* open state -> X */
+.MenuBar.is-open .MenuToggle span:nth-child(1){
   transform: translateY(8px) rotate(45deg);
 }
-.nav.is-open .navToggle span:nth-child(2){
+.MenuBar.is-open .MenuToggle span:nth-child(2){
   opacity: 0;
 }
-.nav.is-open .navToggle span:nth-child(3){
+.MenuBar.is-open .MenuToggle span:nth-child(3){
   transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile dropdown */
+@media (max-width: 860px){
+  .MenuToggle{ display:inline-flex; }
+
+  .MenuLinks{
+    position:absolute;
+    left: 18px;
+    right: 18px;
+    top: calc(100% + 10px);
+
+    flex-direction:column;
+    gap: 6px;
+
+    background: var(--panelBg);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+    padding: 12px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transform: translateY(-12px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+
+    transition:
+      transform .22s ease,
+      opacity .22s ease,
+      max-height .22s ease,
+      visibility 0s linear .22s;
+  }
+
+  .MenuBar.is-open .MenuLinks{
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    max-height: 420px;
+
+    transition:
+      transform .22s ease,
+      opacity .22s ease,
+      max-height .22s ease,
+      visibility 0s;
+  }
+
+  .MenuBarItem{
+    width: 100%;
+    justify-content:flex-start;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.06);
+    border-color: transparent;
+    transform: none;
+  }
+
+  .MenuBarItem:hover{
+    background: rgba(255,255,255,0.10);
+    transform:none;
+  }
 }
 
 /* ================================
@@ -236,7 +297,7 @@ body{
 .heroTitle{
   margin:0;
   color: #fff;
-  font-weight: 200;                 /* deutlich dünner */
+  font-weight: 200;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1.02;
@@ -343,14 +404,12 @@ body{
   padding: 0 18px;
 }
 
-.sectionHead{
-  margin-bottom: 28px;
-}
+.sectionHead{ margin-bottom: 28px; }
 
 .sectionTitle{
   margin: 0 0 8px 0;
   color: #fff;
-  font-weight: 220;                 /* dünner */
+  font-weight: 220;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-size: clamp(1.5rem, 2.6vw, 2.1rem);
@@ -365,37 +424,12 @@ body{
 }
 
 /* ================================
-   LISTS
+   LISTS / TEXT
    ================================ */
 .list{
   display:flex;
   flex-direction:column;
   gap: 18px;
-}
-
-.item{
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.10);
-}
-
-.itemMeta{
-  display:flex;
-  flex-wrap:wrap;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.tag{
-  display:inline-flex;
-  align-items:center;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(160,140,255,0.10);
-  border: 1px solid rgba(160,140,255,0.22);
-  color: rgba(255,255,255,0.90);
-  font-weight: 450;
-  font-size: 0.86rem;
 }
 
 .itemText{
@@ -550,7 +584,7 @@ body{
 .bandName{
   margin:0;
   color: rgba(255,255,255,0.95);
-  font-weight: 220;                 /* deutlich schlanker */
+  font-weight: 220;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-size: clamp(1.35rem, 2.2vw, 1.9rem);
@@ -570,16 +604,12 @@ body{
   flex-wrap:wrap;
 }
 
-.band--featured .bandName{
-  text-shadow: none;
-}
-
 @media (max-width: 980px){
   .band{ grid-template-columns: 1fr; }
 }
 
 /* ================================
-   CONTACT / FOOTER
+   CONTACT
    ================================ */
 .contact{
   display:flex;
@@ -603,111 +633,390 @@ body{
   flex-wrap:wrap;
 }
 
-.footer{
-  margin-top: 40px;
-  padding: 18px 0 10px 0;
-  color: var(--muted2);
-  text-align:left;
-  font-size: 0.95rem;
+/* ================================
+   FOOTER (modern + plain links)
+   ================================ */
+footer{ margin-top: 40px; }
+
+.FootBar{
+  background: rgba(10,16,36,0.92);
+  border-top: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 -18px 45px rgba(0,0,0,0.35);
+  padding: 34px 18px 22px;
+}
+
+.FooterTable{
+  max-width: 1200px;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.FooterTable th{
+  padding: 10px 14px;
+  vertical-align: top;
+  text-align: left;
   font-weight: 300;
 }
 
-.poweredBy{
-  margin: 10px 0 0 0;
-  color: var(--muted2);
+.FooterLogo{
+  height: 56px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 12px rgba(0,0,0,0.55));
+  opacity: 0.95;
+}
+
+.FooterText{
+  color: rgba(255,255,255,0.80);
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+.FooterInternalLinksDiv{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* plain footer links (keine Pills) */
+.FooterInternalLink,
+.FooterInternalLink:visited{
+  display: inline;
+  width: auto;
+
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
+  font-weight: 350;
+
+  transition: color .18s ease, text-decoration-color .18s ease;
+}
+
+.FooterInternalLink:hover{
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.FooterInternalLink:focus,
+.FooterInternalLink:focus-visible{
+  outline: none;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.CopyrightNoticeFooter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+
+  color: rgba(255,255,255,0.62);
   font-size: 0.92rem;
   font-weight: 300;
+  text-align: center;
 }
-.poweredBy a{
-  color: var(--brand);
+
+.CopyrightNoticeFooter p{ margin: 0; }
+
+.CopyrightNoticeFooter a,
+.CopyrightNoticeFooter a:visited{
+  color: rgba(255,255,255,0.86);
   text-decoration: none;
   font-weight: 520;
 }
-.poweredBy a:hover{
+
+.CopyrightNoticeFooter a:hover{
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* ================================
-   MOBILE NAV DROPDOWN (SLIDE)
-   ================================ */
+.CopyrightNoticeFooter + .CopyrightNoticeFooter{
+  border-top: 0;
+  padding-top: 8px;
+  margin-top: 6px;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Mobile footer: table stack */
 @media (max-width: 860px){
-  .navToggle{
-    display:inline-flex;
+  .FootBar{ padding: 26px 16px 18px; }
+
+  .FooterTable,
+  .FooterTable tbody,
+  .FooterTable tr,
+  .FooterTable th{
+    display: block;
+    width: 100% !important;
   }
 
-  /* Wichtig: NICHT display:none => sonst keine Animation */
-  .navLinks{
-    position:absolute;
-    left: 18px;
-    right: 18px;
-    top: calc(100% + 10px);
+  .FooterTable th[width="10%"]{ display: none; }
 
-    flex-direction:column;
-    gap: 6px;
+  .FooterTable tr{
+    display: grid;
+    gap: 14px;
+  }
 
-    background: var(--panelBg);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 18px;
-    box-shadow: 0 18px 40px rgba(0,0,0,0.55);
-    padding: 12px;
+  .FooterLogo{
+    height: 52px;
+    margin-bottom: 6px;
+  }
 
+  .FooterText{ text-align: center; }
+  .FooterInternalLinksDiv{ align-items: center; }
+}
+
+.liveToggleBtn{
+  margin-top: 14px;
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: rgba(255,255,255,0.92);
+
+  font-weight: 450;
+  letter-spacing: 0.02em;
+
+  cursor: pointer;
+  user-select: none;
+
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition:
+    transform .16s ease,
+    background .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    color .18s ease;
+}
+
+.liveToggleBtn:hover{
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(160,140,255,0.38);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.42), 0 0 0 3px rgba(160,140,255,0.12);
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+.liveToggleBtn:active{
+  transform: translateY(0px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+}
+
+.liveToggleBtn:focus,
+.liveToggleBtn:focus-visible{
+  outline: none;
+  border-color: rgba(160,140,255,0.55);
+  box-shadow: 0 0 0 4px rgba(160,140,255,0.18), 0 14px 34px rgba(0,0,0,0.42);
+}
+
+/* =========================================
+   MENU: Mobile = DARK (wie jetzt)
+         Desktop = LIGHT (invertiert)
+   ========================================= */
+
+/* Desktop Light Mode */
+@media (min-width: 861px){
+
+  /* Bar hell + glossy */
+  .MenuBar{
+    background: rgba(255,255,255,0.86);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+    border-bottom: 1px solid rgba(10,16,36,0.10);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-
-    /* geschlossen */
-    transform: translateY(-12px);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    max-height: 0;
-    overflow: hidden;
-
-    transition:
-      transform .22s ease,
-      opacity .22s ease,
-      max-height .22s ease,
-      visibility 0s linear .22s;
   }
 
-  /* geöffnet */
-  .nav.is-open .navLinks{
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    max-height: 420px;
-
-    transition:
-      transform .22s ease,
-      opacity .22s ease,
-      max-height .22s ease,
-      visibility 0s;
+  /* Logo-Kachel hell */
+  .MenuBarLogoLink{
+    background: rgba(0,0,0,0.04);
+    border-color: rgba(10,16,36,0.14);
   }
 
-  .navLink{
-    width: 100%;
-    justify-content:flex-start;
-    padding: 12px 14px;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.06);
-    color: rgba(255,255,255,0.92);
-    font-weight: 350;
+  /* Pills: dunkel text auf hell */
+  .MenuBarItem{
+    color: rgba(10,16,36,0.86);
+    background: transparent;
+    border: 1px solid transparent;
   }
 
-  .navLink:hover{
-    background: rgba(255,255,255,0.10);
-    transform:none;
+  .MenuBarItem:hover{
+    background: rgba(10,16,36,0.06);
+    border-color: rgba(10,16,36,0.12);
+    color: rgba(10,16,36,0.95);
+  }
+
+  .MenuBarItem:focus,
+  .MenuBarItem:focus-visible{
+    outline: none;
+    background: rgba(10,16,36,0.08);
+    border-color: rgba(160,140,255,0.55);
+    box-shadow: 0 0 0 3px rgba(160,140,255,0.18);
+    color: rgba(10,16,36,0.95);
   }
 }
 
-/* ================================
-   Legacy compatibility (optional)
-   ================================ */
-.MenuBar{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+/* Mobile Dark Mode explizit festnageln (falls irgendwo was überschrieben wurde) */
+@media (max-width: 860px){
+
+  .MenuBar{
+    background: var(--navBg);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.55);
+    border-bottom: 0;
+  }
+
+  .MenuBarLogoLink{
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.16);
+  }
+
+  .MenuBarItem{
+    color: rgba(255,255,255,0.92);
+  }
+}
+
+/* =========================================
+   THEME SWITCH:
+   Mobile (<=860px)  = DARK (default)
+   Desktop (>=861px) = LIGHT (invertiert)
+   ========================================= */
+
+@media (min-width: 861px){
+
+  /* 1) Variablen auf Light drehen */
+  :root{
+    --bg: #f6f7fb;                         /* Page background */
+    --navBg: rgba(255,255,255,0.86);       /* Nav background */
+    --panelBg: rgba(255,255,255,0.92);
+
+    --text: rgba(10,16,36,0.88);
+    --muted: rgba(10,16,36,0.62);
+    --muted2: rgba(10,16,36,0.55);
+
+    --border: rgba(10,16,36,0.12);
+    --shadow: 0 18px 45px rgba(10,16,36,0.10);
+  }
+
+  /* 2) Body/Page wirklich hell */
+  body{
+    background: var(--bg);
+    color: var(--text);
+  }
+  .page{ background: var(--bg); }
+
+  /* 3) Sections / Trennlinien von "weiß" auf dark-border */
+  .section + .section{
+    border-top: 1px solid var(--border);
+  }
+
+  .item,
+  .liveRow,
+  .band{
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* 4) Typo: überall wo hart #fff / rgba(255...) drin war -> dark */
+  .sectionTitle{
+    color: rgba(10,16,36,0.92);
+  }
+
+  .bandName{
+    color: rgba(10,16,36,0.92);
+  }
+
+  .liveDate{
+    color: rgba(10,16,36,0.92);
+  }
+
+  .livePlace{
+    color: rgba(10,16,36,0.86);
+  }
+
+  /* 5) Cards/Bilder: Border auf dark-border */
+  .aboutImage,
+  .embed,
+  .bandImg{
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  /* 6) Icon-Buttons (in Content): etwas heller/cleaner */
+  .iconBtn{
+    background: rgba(255,255,255,0.92);
+    border: 1px solid var(--border);
+    color: rgba(10,16,36,0.92);
+    box-shadow: 0 10px 26px rgba(10,16,36,0.10);
+  }
+  .iconBtn:hover{
+    background: var(--brand);
+    color: #0b1020;
+  }
+
+  /* 7) Links im Content */
+  .link{
+    color: rgb(120, 95, 255);
+  }
+
+  /* 8) Footer bleibt DARK (optional) — wenn du willst, dass der Footer auch hell wird,
+        sag kurz Bescheid, dann drehen wir den ebenfalls um. */
+}
+
+/* Mobile bleibt wie bisher dark, keine extra Regeln nötig */
+/* =========================================
+   LOGO SWITCH:
+   Desktop (Light) = LogoNoBG.png
+   Mobile (Dark)   = NegLogoNoBG.png
+   ========================================= */
+
+@media (min-width: 861px){
+  .MenuBarLogo{
+    content: url("Resources/LogoNoBG.png");
+  }
+}
+
+@media (max-width: 860px){
+  .MenuBarLogo{
+    content: url("Resources/NegLogoNoBG.png");
+  }
+}
+
+/* Desktop Light: "Mehr Events anzeigen" Text darf nicht weiß sein */
+@media (min-width: 861px){
+  .liveToggleBtn{
+    color: rgba(10,16,36,0.88) !important;
+    border-color: rgba(10,16,36,0.16) !important;
+    background: rgba(10,16,36,0.06) !important;
+    box-shadow: 0 10px 26px rgba(10,16,36,0.10) !important;
+  }
+
+  .liveToggleBtn:hover{
+    color: rgba(10,16,36,0.95) !important;
+    background: rgba(10,16,36,0.10) !important;
+    border-color: rgba(10,16,36,0.22) !important;
+  }
+
+  .liveToggleBtn:focus,
+  .liveToggleBtn:focus-visible{
+    outline: none;
+    color: rgba(10,16,36,0.95) !important;
+    border-color: rgba(160,140,255,0.55) !important;
+    box-shadow: 0 0 0 4px rgba(160,140,255,0.18), 0 14px 34px rgba(10,16,36,0.14) !important;
+  }
 }
