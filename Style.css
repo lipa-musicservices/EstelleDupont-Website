@@ -1020,3 +1020,54 @@ footer{ margin-top: 40px; }
     box-shadow: 0 0 0 4px rgba(160,140,255,0.18), 0 14px 34px rgba(10,16,36,0.14) !important;
   }
 }
+
+/* Brand (Logo + Text) */
+.MenuBrand{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0; /* wichtig fürs Kürzen */
+}
+
+/* Textblock */
+.MenuBrandText{
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+  min-width: 0; /* wichtig fürs Kürzen */
+}
+
+.MenuBrandName{
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.92);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 36vw;  /* verhindert dass es die Links wegdrückt */
+}
+
+.MenuBrandSub{
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.70);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 36vw;
+}
+
+/* Mobile: nur Name (oder nur 1 Zeile) */
+@media (max-width: 860px){
+  .MenuBrandName{ max-width: 52vw; }
+  .MenuBrandSub{ display: none; }
+}
+
+@media (min-width: 861px){
+  .MenuBrandName{ color: rgba(10,16,36,0.92); }
+  .MenuBrandSub{ color: rgba(10,16,36,0.62); }
+}
