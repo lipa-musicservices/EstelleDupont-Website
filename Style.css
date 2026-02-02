@@ -1182,14 +1182,12 @@ footer{ margin-top: 40px; }
 .aClamp{
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;   /* <- Anzahl Zeilen: anpassen (3,4,5...) */
   overflow: hidden;
 }
 
 /* Open state: voll anzeigen */
 .aOpen{
   display: block;
-  -webkit-line-clamp: unset;
   overflow: visible;
 }
 
