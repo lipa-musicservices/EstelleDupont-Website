@@ -24,6 +24,13 @@
   /* Font */
   --font: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
           Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+            /* Articles */
+  --cardBg: rgba(255,255,255,0.03);
+  --cardBg2: rgba(255,255,255,0.04);
+  --title: rgba(255,255,255,0.92);
+  --fadeTo: var(--bg);
+
 }
 
 *{ box-sizing:border-box; }
@@ -871,6 +878,8 @@ footer{ margin-top: 40px; }
     box-shadow: 0 0 0 3px rgba(160,140,255,0.18);
     color: rgba(10,16,36,0.95);
   }
+
+  
 }
 
 /* Mobile Dark Mode explizit festnageln (falls irgendwo was überschrieben wurde) */
@@ -912,6 +921,13 @@ footer{ margin-top: 40px; }
 
     --border: rgba(10,16,36,0.12);
     --shadow: 0 18px 45px rgba(10,16,36,0.10);
+
+        /* Articles (Light) */
+    --cardBg: rgba(10,16,36,0.03);
+    --cardBg2: rgba(10,16,36,0.04);
+    --title: rgba(10,16,36,0.92);
+    --fadeTo: var(--bg);
+
   }
 
   /* 2) Body/Page wirklich hell */
@@ -1070,4 +1086,136 @@ footer{ margin-top: 40px; }
 @media (min-width: 861px){
   .MenuBrandName{ color: rgba(10,16,36,0.92); }
   .MenuBrandSub{ color: rgba(10,16,36,0.62); }
+}
+
+/* ================================
+   SONSTIGES / ARTICLES (clean grid)
+   ================================ */
+
+/* ================================
+   SONSTIGES / ARTICLES (responsive theme-safe)
+   ================================ */
+
+.articles{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 980px){
+  .articles{ grid-template-columns: 1fr; }
+}
+
+.aCard{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--cardBg);
+}
+
+.aImgLink{
+  display:block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow:hidden;
+  background: var(--cardBg2);
+  text-decoration: none; /* verhindert hässliches Link-Underline */
+  color: inherit;
+}
+
+.aImg{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  transform: scale(1.01);
+}
+
+.aBody{
+  padding: 14px 16px 16px;
+}
+
+.aMeta{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.aSource{
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.aLink{
+  color: var(--brand);
+  text-decoration:none;
+  font-weight: 520;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.aLink:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.aTitle{
+  margin: 0 0 8px 0;
+  color: var(--title);
+  font-weight: 300;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+}
+
+.aText{
+  color: var(--muted);
+  line-height: 1.8;
+  font-weight: 300;
+}
+.aText p{ margin: 0; }
+
+/* Clamp mit 3 Punkten (statt Fade) */
+.aClamp{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;   /* <- Anzahl Zeilen: anpassen (3,4,5...) */
+  overflow: hidden;
+}
+
+/* Open state: voll anzeigen */
+.aOpen{
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+
+.aActions{
+  margin-top: 12px;
+  display:flex;
+  justify-content:flex-start;
+}
+
+.aBtn{
+  appearance:none;
+  -webkit-appearance:none;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 9px 14px;
+  border-radius: 999px;
+  cursor:pointer;
+  font-weight: 450;
+  letter-spacing: 0.02em;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.aBtn:hover{
+  background: rgba(160,140,255,0.10);
+  border-color: rgba(160,140,255,0.35);
+  transform: translateY(-1px);
 }
